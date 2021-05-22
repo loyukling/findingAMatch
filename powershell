@@ -1,0 +1,8 @@
+ $startprintout = $false
+ $Hashkey = $fileContent[0.-30] | % {  
+   
+               if ($startprintout -and ($_ -inotmatch 'Find')) { $_ }
+               if ($_ -imatch 'Scanned')     {$startprintout = $true  }
+               if ($_ -imatch 'Find') {$startprintout = $false }
+
+            }
